@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Interactive card details form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="left">
+      <img src="images/bg-main-desktop.png" alt="">
+      <div class="cardFront">
+        <div class="logo"><img src="images/card-logo.svg" alt=""></div>
+        <div class="result">0000 0000 0000 0000</div>
+        <span class="name">Jane Appleseed</span>
+        <span class="time"> <span class="month">00</span> / <span class="year">00</span> </span>
+      </div>
+      <div class="cardBack">
+        <div class="cvcValue">000</div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="rightContainer">
+        <form action="">
+
+          <div class="input">
+            <label for="name">Cardholder Name</label>
+            <input type="text" name="" id="name" placeholder="e.g. Jane Appleseed" oninput="nameFunction()" maxlength="20">
+          </div>
+  
+         <div class="input">
+          <label for="number">Card Number</label>
+          <input type="text" name="" id="number" placeholder=" e.g. 1234 5678 9123 0000" oninput="numberFunction()" maxlength="16">
+         </div>
+  
+         <div class="value">
+          <div class="samllLeft">
+            <label for="">Exp. Date (MM/YY)</label>
+            <div>
+              <input type="text" name="" id="mm" placeholder="MM" maxlength="2" oninput="monthfunction()">
+              <input type="text" name="" id="yy" placeholder="YY" maxlength="2" oninput="yearfunction()">
+            </div>
+          </div>
+          <div class="smallRight">
+            <label for="">CVC</label>
+            <input type="text" name="" id="cvc" placeholder="e.g. 123" maxlength="3" oninput="cvcfunction()">
+          </div>
+         </div>
+        </form>
+        <button type="" class="confirm" onclick="complete()">Confirm</button>
+      </div>
+      
+      <div class="complete">
+        <img src="images/icon-complete.svg" alt="">
+          <h1>Thank you!</h1>
+          <p>We've added your card details</p>
+          <button>Continue</button>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+
+
+  <script>
+  
+    function nameFunction () {
+      let name = document.querySelector("#name").value;
+      document.querySelector(".name").innerHTML = name ;
+    }
+    function numberFunction() {
+      let num = document.querySelector("#number").value;
+      let number = num.match(/.{1,4}/g);
+      if( isNaN(num) ) {
+        alert("Please, type number.");
+        document.querySelector("#number").value = "";
+      } else {
+        document.querySelector(".result").innerHTML = number.join(" ") ;
+      }
+     
+    }
+    function monthfunction() {
+      let month = document.querySelector("#mm").value;
+      if( isNaN(month) ) {
+        alert("Plese, choose month")
+      } else {
+        if( month <= 12) {
+          document.querySelector(".month").innerHTML = month ;
+        } else {
+          alert("Only have 12 months.");
+          document.querySelector("#mm").value = "";
+        } 
+      }
+      
+    }
+    function yearfunction() {
+      let year = document.querySelector("#yy").value;
+      if( isNaN(year)) {
+        alert("Please, choose yaer");
+        document.querySelector("#yy").value = "" ;
+      } else {
+         document.querySelector(".year").innerHTML = year ;
+      }
+    }
+    function cvcfunction() {
+      let cvc = document.querySelector("#cvc").value;
+      if (isNaN(cvc)) {
+        alert("Please, choose number");
+        document.querySelector("#cvc").value = "";
+      } else {
+        document.querySelector(".cvcValue").innerHTML = cvc ;
+      }
+     
+    }
+
+    function complete () {
+      document.querySelector(".complete").style.display = "block";
+      document.querySelector(".rightContainer").style.display = "none";
+    }
+ 
+  </script>
+</body>
+</html>

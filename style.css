@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+}
+body{
+    font-size: 16px;
+    font-family: space500;
+}
+@font-face {
+    font-family: space500;
+    src: url(fonts/Space_Grotesk/static/SpaceGrotesk-Medium.ttf);
+}
+.container {
+    display: flex;
+}
+.left {
+    flex: 30%;
+    position: relative;
+}
+.left img{
+    width: 100%;
+}
+
+/* Card Front Component */
+.cardFront{
+    background-image: url(images/bg-card-front.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    width: 500px;
+    height: 250px;
+    top: 10%;
+    left: 30%;
+    border-radius: 10px;
+    padding: 30px;
+    color: white;
+    font-size: large;
+}
+.logo {
+    width: 15%;
+}
+.result{
+    width: 100%;
+    font-size: xx-large;
+    margin: 100px 0 50px 0;
+    letter-spacing: 5px;
+    text-align: center;
+}
+.time{
+    float: right;
+}
+/* End Card Front Component */ 
+
+/* Card Back Component*/
+
+.cardBack {
+    background-image: url(images/bg-card-back.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    width: 500px;
+    height: 250px;
+    top: 45%;
+    left: 50%;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+}
+.cvcValue{
+    float: right;
+    margin: 110px 50px 0 0;
+    font-size: large;
+}
+/* End Card Back Conmponent */
+
+.right  {
+    flex: 70%;
+}
+label{
+    display: block;
+    margin-bottom: 10px;
+}
+.rightContainer{
+    margin:  200px auto;
+    width: 30%;
+}
+.complete{
+    width: 30%;
+    margin:  350px auto;
+    text-align: center;
+    display: none;
+}
+.complete p {
+    margin: 30px 0;
+}
+.input{
+    margin: 30px 0;
+}
+form input{
+    display: inline-block;
+    width: 92%;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid hsl(270, 3%, 87%);
+}
+form input:active {
+    border: 1px solid hsl(278, 68%, 11%);
+}
+.value {
+    display: flex;
+    margin: 40px 0;
+}
+.smallLeft, .smallRight {
+    flex: 50%;
+}
+#mm, #yy{
+    width: 20%;
+}
+#cvc {
+    width: 70%;
+}
+button{
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: hsl(278, 68%, 11%);
+    color: white;
+    border-radius: 10px;
+    font-family: space500;
+}
+
